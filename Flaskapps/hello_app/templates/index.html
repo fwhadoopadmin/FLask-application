@@ -1,0 +1,53 @@
+<!---- inherits -->
+
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Task Smash</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="content">
+    <h1> Task Smash 2.0</h1>
+
+    <!-- add logic -->
+    {% if tasks | length < 1 %}
+    <h3>There are no tasks ...Create one here!</h3>
+    {% else %}
+    
+    <!--Populate the tables with data we collected from the database-->
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Added</th>
+            <th>Actions</th>
+        </tr>
+        <!---Loop through every tasks in the task array -->
+        {% for task in tasks %}
+            <tr>
+                <td>{{task.content}}</td>
+                <td>{{task.created.strftime("%Y-%m-%d")}}</td>
+                <td>
+                     <!--anchor to delete by id buttons to update or delete -->
+                    <a href="/delete/{{task.id}}">Delete</a>
+                    <br/>
+                    <a href="/edit/{{task.id}}">Edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    <form action="/" method="POST">
+        <input type="text" name="content" id="content" />
+        <input type="submit" value="Add Task" id="btn_add" />
+    </form>
+</div>
+
+
+{% endblock %}
+
+
+
+

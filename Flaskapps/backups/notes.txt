@@ -1,0 +1,112 @@
+$ pip install flask Flask-Scss Flask-SQLAlchemy
+
+$ pip list
+Package           Version
+----------------- -------
+blinker           1.9.0
+click             8.1.7
+colorama          0.4.6
+Flask             3.1.0
+Flask-Scss        0.5
+Flask-SQLAlchemy  3.1.1
+itsdangerous      2.2.0
+Jinja2            3.1.4
+MarkupSafe        3.0.2
+pip               24.3.1
+pyScss            1.4.0
+six               1.17.0
+SQLAlchemy        2.0.36
+typing_extensions 4.12.2
+Werkzeug          3.1.3
+(venv) 
+
+
+virtualenv venv --distribute
+
+source venv/bin/activate
+deactivate
+
+# cretae requirements file 
+ pip freeze > requirements.txt
+(venv)
+
+
+from flask import Flask 
+from flask_scss import Scss
+from flask_sqlalchemy import SQLAlchemy 
+
+
+
+
+# instance of a flask app
+app = Flask(__name__) 
+
+# write decorator @app.route flask use to connect Urls Endpoints with code content functions 
+#@route - defines url componect which is root path in this case
+@app.route("/")
+
+
+# next code index function 
+# wrapped by the @app decorator
+# function defines what should be executed if the url endpoint is requested by User
+# naming index related to how page is called index.html 
+def index():
+    return "Congratulations, it's a web app"
+
+
+
+if __name__== "__main__":
+    app.run(host="127.0.0.1", port=8080, debug=True)
+
+
+
+
+    <th> table column 
+    tr> is table rows
+    
+
+
+        # def __init__(self, content):
+    #     self.content = content
+    #     return f"Task {content}"
+
+
+
+
+
+###############################
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div class="content">
+            <h1> Edit your task</h1>
+            <form action="/edit/{{task.id}}" method="POST">
+                <input 
+                    type="text"
+                    name="content" 
+                    id="content" 
+                    value="{{task.content}}" 
+                />
+
+                <input type="submit" value="Edit" />
+
+            </form>"
+        </div>
+
+        <script src="" async defer></script>
+    </body>
+</html>
